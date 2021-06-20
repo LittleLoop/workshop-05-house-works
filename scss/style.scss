@@ -1,5 +1,5 @@
 //https://mobirise.com/html-templates/simple-html5-template/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;600;700;&display=swap');
 $primary: #313131;
 $secondary: #fde21c;
 $tertiary: #506df5;
@@ -12,6 +12,7 @@ $orange: #fd830f;
 $bg: #f7f7f7;
 $fontSize: 16px;
 $fontFamily: 'Montserrat', sans-serif;
+$bodyFont: 'Roboto', sans-serif;
 $transition: .4s ease;
 $padding: 4rem 0;
 
@@ -39,14 +40,34 @@ a {
 a, p {
 	font-size: 0.8rem;
 	font-weight: bold;
+	font-family: $bodyFont;
 }
 
 .btn {
-	padding: 20px 30px;
+	padding: 15px 30px;
 	font-size: 0.8rem;
 	transition: $transition;
 	border-radius: 3px;
 	border: 2px solid $white;
+	&:hover {
+		color: $primary;
+		background: $white;
+	}
+}
+
+.btn-blue {
+	@extend .btn;
+	background: $tertiary;
+	border: 2px solid $tertiary;
+	&:hover {
+		color: $tertiary;
+		background: transparent;
+	}
+}
+
+.container {
+	width: 70%;
+	margin: auto;
 }
 
 /*****************
@@ -55,6 +76,8 @@ header
 header {
 	width: 100%;
 	position: fixed;
+	height: 13vh;
+	top: 0;
 	background: $primary;
 	color: $white;
 	padding: 10px 0px 20px 0px;
@@ -120,5 +143,35 @@ header {
 				}
 			}
 		}
+	}
+}
+
+/*****************
+welcome
+*****************/
+.welcome {
+	background: linear-gradient(rgba($black, 0.6),rgba($black, 0.6)), url(../img/header.jpg);
+	background-position: center;
+	height: 80vh;
+	// margin-top: 12vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	h1 {
+		font-size: 2.5rem;
+		color: $white;
+		margin-bottom: 30px;
+	}
+	p {
+		font-size: 1rem;
+		color: $white;
+		width: 38%;
+		text-align: center;
+		margin-bottom: 40px;
+		font-weight: 300;
+	}
+	.btn {
+		margin: 5px;
 	}
 }
