@@ -207,4 +207,58 @@ prices
   margin: 25px auto;
 }
 
+/*****************
+our advantages
+*****************/
+.our-advantages {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/our-advantages.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  padding: 50px;
+}
+.our-advantages h2 {
+  font-size: 5rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+.our-advantages h2::after {
+  display: block;
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: #fde21c;
+  margin: 0 auto 70px auto;
+}
+.our-advantages .container {
+  display: flex;
+  justify-content: space-between;
+}
+.our-advantages .container .card {
+  background: #fff;
+  flex: 0 0 31%;
+  border-radius: 0.5rem;
+  border: 1px solid #d3d3d3;
+}
+.our-advantages .container .card img {
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.our-advantages .container .card .text {
+  padding: 2rem;
+}
+.our-advantages .container .card .text h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+.our-advantages .container .card .text p {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #585858;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
 /*# sourceMappingURL=style.css.map */
