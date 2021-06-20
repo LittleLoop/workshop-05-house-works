@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;600;700;&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap");
 /*****************
 basic styles
 *****************/
@@ -27,29 +27,39 @@ a, p {
   font-family: "Roboto", sans-serif;
 }
 
-.btn, .btn-blue {
+.btn, .btn-blue, .btn-transparent-blue {
   padding: 15px 30px;
   font-size: 0.8rem;
   transition: 0.4s ease;
   border-radius: 3px;
   border: 2px solid #fff;
+  display: inline-block;
 }
-.btn:hover, .btn-blue:hover {
+.btn:hover, .btn-blue:hover, .btn-transparent-blue:hover {
   color: #313131;
   background: #fff;
 }
 
-.btn-blue {
+.btn-blue, .btn-transparent-blue {
   background: #506df5;
   border: 2px solid #506df5;
 }
-.btn-blue:hover {
+.btn-blue:hover, .btn-transparent-blue:hover {
   color: #506df5;
   background: transparent;
 }
 
+.btn-transparent-blue {
+  background: transparent;
+  color: #506df5;
+}
+.btn-transparent-blue:hover {
+  background: #506df5;
+  color: #fff;
+}
+
 .container {
-  width: 70%;
+  width: 65%;
   margin: auto;
 }
 
@@ -153,8 +163,48 @@ welcome
   margin-bottom: 40px;
   font-weight: 300;
 }
-.welcome .btn, .welcome .btn-blue {
+.welcome .btn, .welcome .btn-blue, .welcome .btn-transparent-blue {
   margin: 5px;
+}
+
+/*****************
+prices
+*****************/
+.prices {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+.prices .card {
+  border: 1px solid #d3d3d3;
+  padding: 1.5rem;
+  flex: 0 0 33.33%;
+  text-align: center;
+  transition: 0.4s ease;
+  background: #f7f7f7;
+}
+.prices .card:hover {
+  transform: scale(110%);
+}
+.prices .card h2 {
+  font-weight: 300;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+.prices .card h2 span {
+  font-size: 1rem;
+}
+.prices .card h2 .price {
+  font-size: 5rem;
+}
+.prices .card p {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #585858;
+}
+.prices .card .btn, .prices .card .btn-blue, .prices .card .btn-transparent-blue {
+  margin: 25px auto;
 }
 
 /*# sourceMappingURL=style.css.map */

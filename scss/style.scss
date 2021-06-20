@@ -1,5 +1,5 @@
 //https://mobirise.com/html-templates/simple-html5-template/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;600;700;&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap');
 $primary: #313131;
 $secondary: #fde21c;
 $tertiary: #506df5;
@@ -49,6 +49,7 @@ a, p {
 	transition: $transition;
 	border-radius: 3px;
 	border: 2px solid $white;
+	display: inline-block;
 	&:hover {
 		color: $primary;
 		background: $white;
@@ -64,9 +65,18 @@ a, p {
 		background: transparent;
 	}
 }
+.btn-transparent-blue {
+	@extend .btn-blue;
+	background: transparent;
+	color: $tertiary;
+	&:hover {
+		background: $tertiary;
+		color: $white;
+	}
+}
 
 .container {
-	width: 70%;
+	width: 65%;
 	margin: auto;
 }
 
@@ -173,5 +183,48 @@ welcome
 	}
 	.btn {
 		margin: 5px;
+	}
+}
+
+/*****************
+prices
+*****************/
+.prices {
+	display: flex;
+	justify-content: center;
+	padding: 50px;
+
+	.card {
+		border: 1px solid $lightgray;
+		padding: 1.5rem;
+		flex: 0 0 33.33%;
+		text-align: center;
+		transition: $transition;
+		background: $bg;
+		&:hover {
+			transform: scale(110%);
+		}
+
+		h2 {
+
+			font-weight: 300;
+			font-size: 2.4rem;
+			margin-bottom: 20px;
+			font-family: $fontFamily;
+			span {
+				font-size: 1rem;
+			}
+			.price {
+				font-size: 5rem;
+			}
+		}
+		p {
+			font-weight: 400;
+			font-size: 0.8rem;
+			color: $text;
+		}
+		.btn {
+			margin: 25px auto;
+		}
 	}
 }
