@@ -13,6 +13,98 @@ body {
   font-family: "Montserrat", sans-serif;
   color: #000000;
   background: #f7f7f7;
+  letter-spacing: 0px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a, p {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 20px 30px;
+  font-size: 0.8rem;
+  transition: 0.4s ease;
+  border-radius: 3px;
+  border: 2px solid #fff;
+}
+
+/*****************
+header
+*****************/
+header {
+  width: 100%;
+  position: fixed;
+  background: #313131;
+  color: #fff;
+  padding: 10px 0px 20px 0px;
+}
+header .row {
+  display: flex;
+  padding: 0.5rem 1rem;
+}
+header .row img {
+  width: 12%;
+  display: inline-block;
+  margin-right: 10px;
+}
+header .row .logo a {
+  font-size: 1.1rem;
+}
+header .row .column {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+header .row .column:nth-child(2) {
+  justify-content: space-evenly;
+}
+header .row .column:nth-child(3) {
+  justify-content: flex-end;
+}
+header .row:last-child {
+  justify-content: center;
+}
+header .row:last-child ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+header .row:last-child ul li {
+  font-size: 0.6rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  position: relative;
+}
+header .row:last-child ul li i {
+  color: #fff;
+}
+header .row:last-child ul li:hover ul {
+  display: block;
+}
+header .row:last-child ul li ul {
+  display: none;
+  position: absolute;
+  width: 20rem;
+  top: 1rem;
+  left: -1rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #313131;
+}
+header .row:last-child ul li ul li a {
+  padding: 1rem;
+  font-size: 1rem;
+  display: block;
+}
+header .row:last-child ul li #drop-two {
+  width: 25rem;
 }
 
 /*# sourceMappingURL=style.css.map */

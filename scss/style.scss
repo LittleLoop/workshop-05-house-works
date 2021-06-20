@@ -11,8 +11,7 @@ $black: #000000;
 $orange: #fd830f;
 $bg: #f7f7f7;
 $fontSize: 16px;
-$fontFamily: 'Montserrat',
-sans-serif;
+$fontFamily: 'Montserrat', sans-serif;
 $transition: .4s ease;
 $padding: 4rem 0;
 
@@ -29,4 +28,97 @@ body {
     font-family: $fontFamily;
     color: $black;
     background: $bg;
+		letter-spacing: 0px;
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+}
+
+a, p {
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.btn {
+	padding: 20px 30px;
+	font-size: 0.8rem;
+	transition: $transition;
+	border-radius: 3px;
+	border: 2px solid $white;
+}
+
+/*****************
+header
+*****************/
+header {
+	width: 100%;
+	position: fixed;
+	background: $primary;
+	color: $white;
+	padding: 10px 0px 20px 0px;
+	.row {
+		display: flex;
+		padding: 0.5rem 1rem;
+		img {
+			width: 12%;
+			display: inline-block;
+			margin-right: 10px;
+		}
+		.logo a {
+			font-size: 1.1rem;
+		
+		}
+		.column {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			text-align: center;
+			&:nth-child(2) {
+				justify-content: space-evenly;
+			}
+			&:nth-child(3) {
+				justify-content: flex-end;
+			}
+		}
+		&:last-child {
+			justify-content: center;
+			ul {
+				list-style: none;
+				display: flex;
+				justify-content: center;
+				li {
+					font-size: 0.6rem;
+					margin-right: 1rem;
+					font-weight: bold;
+					position: relative;
+					i {
+						color: $white;
+					}
+					&:hover ul {
+						display: block;
+					}
+					ul {
+						display: none;
+						position: absolute;
+						width: 20rem;
+						top: 1rem;
+						left: -1rem;
+						padding-top: 20px;
+						padding-bottom: 20px;
+						background: $primary;
+						li a {
+							padding: 1rem;
+							font-size: 1rem;
+							display: block;
+						}
+					}
+					#drop-two {
+						width: 25rem;
+					}
+				}
+			}
+		}
+	}
 }
