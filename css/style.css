@@ -318,4 +318,63 @@ team
   margin: 0.2rem;
 }
 
+/*****************
+services
+*****************/
+.services {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/bg2.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 50px;
+  color: #fff;
+}
+.services .container {
+  display: flex;
+  justify-content: space-between;
+}
+.services .container .card {
+  border: 1px solid #d3d3d3;
+  padding: 1.5rem;
+  text-align: center;
+  background: transparent;
+  padding: 3rem;
+  flex: 0 0 50%;
+}
+.services .container .card i {
+  color: #fde21c;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+.services .container .card h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  padding: 10px;
+}
+.services .container .card p {
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 0;
+}
+.services .container .card .btn, .services .container .card .btn-blue, .services .container .card .btn-transparent-blue {
+  margin: 10px 0;
+}
+.services .container .text {
+  flex: 0 0 45%;
+  padding: 1rem 2rem 1rem 1rem;
+}
+.services .container .text h4 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  padding: 1rem 0 1rem 0;
+}
+.services .container .text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
 /*# sourceMappingURL=style.css.map */

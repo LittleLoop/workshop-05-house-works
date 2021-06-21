@@ -163,7 +163,6 @@ welcome
 	background: linear-gradient(rgba($black, 0.6),rgba($black, 0.6)), url(../img/header.jpg);
 	background-position: center;
 	height: 80vh;
-	// margin-top: 12vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -339,6 +338,66 @@ team
 					padding-top: 1rem;
 					margin: 0.2rem;
 				}
+			}
+		}
+	}
+}
+
+/*****************
+services
+*****************/
+.services {
+	background: linear-gradient(rgba($black, 0.6),rgba($black, 0.6)), url(../img/bg2.jpg);
+	background-position: center;
+	background-size: cover;
+	padding: 50px;
+	color: $white;
+	.container {
+		display: flex;
+		justify-content: space-between;
+		.card {
+		border: 1px solid $lightgray;
+		padding: 1.5rem;
+		text-align: center;
+		background: transparent;
+		padding: 3rem;
+		flex: 0 0 50%;
+		i {
+			color: $secondary;
+			font-size: 5rem;
+			margin-bottom: 1rem;
+		}
+		h3 {
+			font-size: 2.4rem;
+			font-weight: 500;
+			padding: 10px;
+		}
+		p {
+			line-height: 1.4;
+			font-size: 1rem;
+			font-weight: 400;
+			padding: 10px 0;
+		}
+		.btn {
+			margin: 10px 0;
+		}
+
+		}
+		.text {
+			flex: 0 0 45%;
+			padding: 1rem 2rem 1rem 1rem;
+			h4 {
+				font-weight: 500;
+				font-size: 1.4rem;
+				font-family: $fontFamily;
+				line-height: 1;
+				padding: 1rem 0 1rem 0; 
+			}
+			p {
+				font-size: 1rem;
+				line-height: 1.5;			
+				font-weight: 400;
+				margin-bottom: 2rem;
 			}
 		}
 	}
