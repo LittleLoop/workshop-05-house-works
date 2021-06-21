@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap");
 /*****************
 basic styles
@@ -27,7 +28,7 @@ a, p {
   font-family: "Roboto", sans-serif;
 }
 
-.btn, .btn-blue, .btn-transparent-blue {
+.btn, .btn-yellow, .btn-blue, .btn-transparent-blue {
   padding: 15px 30px;
   font-size: 0.8rem;
   transition: 0.4s ease;
@@ -35,7 +36,7 @@ a, p {
   border: 2px solid #fff;
   display: inline-block;
 }
-.btn:hover, .btn-blue:hover, .btn-transparent-blue:hover {
+.btn:hover, .btn-yellow:hover, .btn-blue:hover, .btn-transparent-blue:hover {
   color: #313131;
   background: #fff;
 }
@@ -46,6 +47,16 @@ a, p {
 }
 .btn-blue:hover, .btn-transparent-blue:hover {
   color: #506df5;
+  background: transparent;
+}
+
+.btn-yellow {
+  background: #fde21c;
+  border: 2px solid #fde21c;
+  color: #313131;
+}
+.btn-yellow:hover {
+  color: #fde21c;
   background: transparent;
 }
 
@@ -163,7 +174,7 @@ welcome
   margin-bottom: 40px;
   font-weight: 300;
 }
-.welcome .btn, .welcome .btn-blue, .welcome .btn-transparent-blue {
+.welcome .btn, .welcome .btn-blue, .welcome .btn-yellow, .welcome .btn-transparent-blue {
   margin: 5px;
 }
 
@@ -203,7 +214,7 @@ prices
   font-size: 0.8rem;
   color: #585858;
 }
-.prices .card .btn, .prices .card .btn-blue, .prices .card .btn-transparent-blue {
+.prices .card .btn, .prices .card .btn-blue, .prices .card .btn-yellow, .prices .card .btn-transparent-blue {
   margin: 25px auto;
 }
 
@@ -356,7 +367,7 @@ services
   font-weight: 400;
   padding: 10px 0;
 }
-.services .container .card .btn, .services .container .card .btn-blue, .services .container .card .btn-transparent-blue {
+.services .container .card .btn, .services .container .card .btn-blue, .services .container .card .btn-yellow, .services .container .card .btn-transparent-blue {
   margin: 10px 0;
 }
 .services .container .text {
@@ -397,6 +408,137 @@ why us
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
+}
+
+/*****************
+contact
+*****************/
+.contact-bar {
+  background: #313131;
+  padding: 80px;
+  text-align: center;
+}
+.contact-bar .btn, .contact-bar .btn-blue, .contact-bar .btn-yellow, .contact-bar .btn-transparent-blue {
+  margin: 0 5px;
+}
+.contact .container {
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.contact .container .contact-form {
+  flex: 0 0 25%;
+  padding: 0 15px;
+}
+.contact .container .contact-form input {
+  width: 100%;
+  margin-bottom: 2rem;
+  color: #585858;
+  background-color: transparent;
+  border: 1px dotted #585858;
+  padding: 1rem;
+}
+.contact .container .contact-form textarea {
+  width: 100%;
+  color: #585858;
+  background-color: transparent;
+  border: 1px dotted #585858;
+  padding: 1rem;
+}
+.contact .container .contact-form .btn, .contact .container .contact-form .btn-blue, .contact .container .contact-form .btn-yellow, .contact .container .contact-form .btn-transparent-blue {
+  text-transform: uppercase;
+  margin: 1rem auto;
+  display: block;
+  font-weight: bold;
+}
+.contact .container .contact-form .btn:hover, .contact .container .contact-form .btn-blue:hover, .contact .container .contact-form .btn-yellow:hover, .contact .container .contact-form .btn-transparent-blue:hover {
+  background: transparent;
+  color: #000000;
+}
+.contact .container .contact-info-1 {
+  flex: 0 0 25%;
+  padding: 0 15px;
+}
+.contact .container .contact-info-1 h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 10px 0;
+}
+.contact .container .contact-info-1 p {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 15px;
+  padding: 10px 0;
+}
+.contact .container .contact-categories {
+  flex: 0 0 25%;
+  padding: 0 15px;
+}
+.contact .container .contact-categories h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 10px 0;
+}
+.contact .container .contact-categories ul {
+  list-style: none;
+  padding: 10px 15px;
+  letter-spacing: 0px;
+}
+.contact .container .contact-categories ul li {
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1;
+}
+.contact .container .contact-categories ul li::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  font-size: 0.6rem;
+  padding-right: 15px;
+  vertical-align: 0.1rem;
+}
+.contact .container .contact-info-2 {
+  flex: 0 0 25%;
+  padding: 0 15px;
+}
+.contact .container .contact-info-2 img {
+  width: 80px;
+  padding-bottom: 1rem;
+}
+.contact .container .contact-info-2 p {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+.contact .container .contact-info-2 .contact-set {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact .container .contact-info-2 .contact-set i {
+  flex: 0 0 5%;
+  color: #012f5b;
+}
+.contact .container .contact-info-2 .contact-set h4 {
+  flex: 0 0 90%;
+  padding: 10px 10px;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: 0px;
+  font-family: "Roboto", sans-serif;
+}
+.contact .container .contact-info-2 .contact-set h4:last-child {
+  color: #012f5b;
 }
 
 /*# sourceMappingURL=style.css.map */
