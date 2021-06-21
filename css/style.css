@@ -541,4 +541,19 @@ contact
   color: #012f5b;
 }
 
+/*****************
+footer
+*****************/
+footer {
+  background: #313131;
+  text-align: center;
+  padding: 60px;
+}
+footer p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #fff;
+}
+
 /*# sourceMappingURL=style.css.map */

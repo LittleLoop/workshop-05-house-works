@@ -568,3 +568,18 @@ contact
 		}
 	}
 }
+
+/*****************
+footer
+*****************/
+footer {
+	background: $primary;
+	text-align: center;
+	padding: 60px;
+	p	{
+		font-size: 1.2rem;
+		line-height: 1.5;
+		font-weight: 400;
+		color: $white;
+	}
+}
