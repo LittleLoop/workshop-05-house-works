@@ -17,6 +17,17 @@ $transition: .4s ease;
 $padding: 4rem 0;
 
 /*****************
+mixins
+*****************/
+@mixin flex($justify, $align, $direction) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+
+/*****************
 basic styles
 *****************/
 * {
@@ -31,18 +42,18 @@ body {
     background: $bg;
 		letter-spacing: 0px;
 }
-
+ul {
+	list-style: none;
+}
 a {
 	color: $white;
 	text-decoration: none;
 }
-
 a, p {
 	font-size: 0.8rem;
 	font-weight: bold;
 	font-family: $bodyFont;
 }
-
 .btn {
 	padding: 15px 30px;
 	font-size: 0.8rem;
@@ -54,43 +65,46 @@ a, p {
 		color: $primary;
 		background: $white;
 	}
-}
-
-.btn-blue {
-	@extend .btn;
-	background: $tertiary;
-	border: 2px solid $tertiary;
-	&:hover {
-		color: $tertiary;
-		background: transparent;
-	}
-}
-
-.btn-yellow {
-	@extend .btn;
-	background: $secondary;
-	border: 2px solid $secondary;
-	color: $primary;
-	&:hover {
-		color: $secondary;
-		background: transparent;
-	}
-}
-.btn-transparent-blue {
-	@extend .btn-blue;
-	background: transparent;
-	color: $tertiary;
-	&:hover {
+	&-blue {
+		@extend .btn;
 		background: $tertiary;
-		color: $white;
+		border: 2px solid $tertiary;
+		&:hover {
+			color: $tertiary;
+			background: transparent;
+		}
+		&-transparent {
+			@extend .btn-blue;
+			background: transparent;
+			color: $tertiary;
+			&:hover {
+				background: $tertiary;
+				color: $white;
+			}
+		}
+	}
+	&-yellow {
+		@extend .btn;
+		background: $secondary;
+		border: 2px solid $secondary;
+		color: $primary;
+		&:hover {
+			color: $secondary;
+			background: transparent;
+		}
 	}
 }
-
 .container {
 	width: 65%;
 	margin: auto;
+	@media(max-width:767px){
+		width: 90%;
+	}
 }
 
+section {
+	padding: 30px 0;
+}
 /*****************
 header
 *****************/
@@ -102,9 +116,13 @@ header {
 	background: $primary;
 	color: $white;
 	padding: 10px 0px 20px 0px;
+
 	.row {
-		display: flex;
+		@include flex(space-between, center, row);
 		padding: 0.5rem 1rem;
+		@media(max-width:767px) {
+			width: 100%;
+		}
 		img {
 			width: 12%;
 			display: inline-block;
@@ -112,26 +130,35 @@ header {
 		}
 		.logo a {
 			font-size: 1.1rem;
-		
+			@media(max-width:767px) {
+				display: none;
+			}
 		}
 		.column {
 			flex: 1;
-			display: flex;
-			align-items: center;
-			text-align: center;
+			@include flex(center, center, row);
 			&:nth-child(2) {
 				justify-content: space-evenly;
+				p {
+					@media(max-width:767px) {
+						display: none;
+					}
+				}
 			}
 			&:nth-child(3) {
 				justify-content: flex-end;
+				@media(max-width:767px) {
+					display: none;
+				}
 			}
 		}
 		&:last-child {
 			justify-content: center;
+			@media(max-width:767px) {
+				display: none;
+			}
 			ul {
-				list-style: none;
-				display: flex;
-				justify-content: center;
+				@include flex(center, center, row);
 				li {
 					font-size: 0.6rem;
 					margin-right: 1rem;
@@ -174,14 +201,20 @@ welcome
 	background: linear-gradient(rgba($black, 0.6),rgba($black, 0.6)), url(../img/header.jpg);
 	background-position: center;
 	height: 80vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	@include flex(center, center, column);
+	@media(max-width:767px) {
+		height: 100vh;
+		background-size: cover;
+	}
 	h1 {
 		font-size: 2.5rem;
 		color: $white;
 		margin-bottom: 30px;
+		@media(max-width:767px) {
+			font-size: 1.5rem;
+			margin-top: 100px;
+			margin-bottom: 15px;
+		}
 	}
 	p {
 		font-size: 1rem;
@@ -190,6 +223,14 @@ welcome
 		text-align: center;
 		margin-bottom: 40px;
 		font-weight: 300;
+		@media(max-width:767px) {
+			width: 90%;
+		}
+	}
+	div {
+		@media(max-width:767px) {
+			@include flex(center, center, column);
+		}
 	}
 	.btn {
 		margin: 5px;
@@ -200,10 +241,7 @@ welcome
 prices
 *****************/
 .prices {
-	display: flex;
-	justify-content: center;
-	padding: 50px;
-
+	@include flex(center, center, row);
 	.card {
 		border: 1px solid $lightgray;
 		padding: 1.5rem;
@@ -211,26 +249,35 @@ prices
 		text-align: center;
 		transition: $transition;
 		background: $bg;
+		@media(max-width:767px) {
+			flex: 0 0 100%;
+		}
 		&:hover {
 			transform: scale(110%);
+			@media(max-width:767px) {
+				transform: none;
+			}
 		}
-
 		h2 {
-
 			font-weight: 300;
 			font-size: 2.4rem;
 			margin-bottom: 20px;
 			font-family: $fontFamily;
+			@media(max-width:767px) {
+				font-size: 1.5rem;
+			}
 			span {
 				font-size: 1rem;
 			}
 			.price {
 				font-size: 5rem;
+				@media(max-width:767px) {
+					font-size: 2.5rem;
+				}
 			}
 		}
 		p {
 			font-weight: 400;
-			font-size: 0.8rem;
 			color: $text;
 		}
 		.btn {
@@ -247,12 +294,17 @@ our advantages
 	background-position: center;
 	background-size: cover;
 	height: 80vh;
-	padding: 50px;
+	@media(max-width:767px) {
+		height: auto;
+	}
 	h2 {
 		font-size: 5rem;
 		font-weight: 500;
 		color: $white;
 		text-align: center;
+		@media(max-width:767px) {
+			font-size: 3rem;
+		}
 		&::after {
 			display: block;
 			content: '';
@@ -260,17 +312,23 @@ our advantages
 			height: 4px;
 			background: $secondary;
 			margin: 0 auto 70px auto;
+			@media(max-width:767px) {
+				width: 50px;
+				margin-top: 20px;
+			}
 		}
 	}
 	.container {
-		display: flex;
-		justify-content: space-between;
+		@include flex(space-between, center, row);
 		.card {
 			background: $white;
 			flex: 0 0 31%;
 			border-radius: 0.5rem;
 			border: 1px solid $lightgray;
-		
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+				margin-bottom: 20px;
+			}
 			img {
 				width: 100%;
 				border-radius: 0.5rem 0.5rem 0 0 ;
@@ -281,11 +339,9 @@ our advantages
 					font-size: 1.4rem;
 					font-weight: 500;
 					padding-bottom: 20px;
-					
 				}
 				p {
 					font-weight: 400;
-					font-size: 0.8rem;
 					color: $text;
 					line-height: 1.5;
 					margin-bottom: 30px;
@@ -299,16 +355,16 @@ our advantages
 team
 *****************/
 .team {
-	display: flex;
-	padding: 50px;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	@include flex(space-between, center, row);
 	h2 {
 		flex: 0 0 100%;
 		font-size: 5rem;
 		font-weight: 300;
 		text-align: center;
 		padding-bottom: 50px;
+		@media(max-width:767px) {
+			font-size: 3rem;
+		}
 	}
 	.card {
 		flex: 0 0 48.7%;
@@ -316,8 +372,15 @@ team
 		background: white;
 		box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.1);
 		margin-bottom: 30px;
+		@media(max-width:767px) {
+			flex: 0 0 100%;
+			flex-direction: column;
+		}
 		.image {
 			flex: 50%;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 			img {
 				width: 100%;
 				margin-bottom: -4px;
@@ -326,9 +389,15 @@ team
 		.text {
 			flex: 40%;
 			padding: 1.8rem;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 			h3 {
 				font-size: 1.2rem;
 				font-family: $bodyFont;
+				@media(max-width:767px) {
+					font-size: 1rem;
+				}
 			}
 			h4 {
 				font-size: 1rem;
@@ -337,7 +406,6 @@ team
 				font-weight: 300;
 			}
 			p {
-				font-size: 0.8rem;
 				font-family: $bodyFont;
 				line-height: 1.5rem;
 				font-weight: 300;
@@ -361,52 +429,63 @@ services
 	background: linear-gradient(rgba($black, 0.6),rgba($black, 0.6)), url(../img/bg2.jpg);
 	background-position: center;
 	background-size: cover;
-	padding: 50px;
 	color: $white;
 	.container {
-		display: flex;
-		justify-content: space-between;
+		@include flex(space-between, center, row);
 		.card {
-		border: 1px solid $lightgray;
-		padding: 1.5rem;
-		text-align: center;
-		background: transparent;
-		padding: 3rem;
-		flex: 0 0 50%;
-		i {
-			color: $secondary;
-			font-size: 5rem;
-			margin-bottom: 1rem;
-		}
-		h3 {
-			font-size: 2.4rem;
-			font-weight: 500;
-			padding: 10px;
-		}
-		p {
-			line-height: 1.4;
-			font-size: 1rem;
-			font-weight: 400;
-			padding: 10px 0;
-		}
-		.btn {
-			margin: 10px 0;
-		}
+			border: 1px solid $lightgray;
+			padding: 1.5rem;
+			text-align: center;
+			background: transparent;
+			padding: 3rem;
+			flex: 0 0 50%;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 
+			i {
+				color: $secondary;
+				font-size: 5rem;
+				margin-bottom: 1rem;
+			}
+			h3 {
+				font-size: 2.4rem;
+				font-weight: 500;
+				padding: 10px;
+				@media(max-width:767px) {
+					font-size: 1.6rem;
+				}
+			}
+			p {
+				line-height: 1.4;
+				font-size: 1rem;
+				font-weight: 400;
+				padding: 10px 0;
+			}
+			.btn {
+				margin: 10px 0;
+			}
 		}
 		.text {
 			flex: 0 0 45%;
 			padding: 1rem 2rem 1rem 1rem;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+				padding: 1rem 0;
+			}
 			h4 {
 				font-weight: 500;
 				font-size: 1.4rem;
 				font-family: $fontFamily;
 				line-height: 1;
-				padding: 1rem 0 1rem 0; 
+				padding: 1rem 0 1rem 0;
+				@media(max-width:767px) {
+					font-size: 1.2rem;					
+				}
 			}
 			p {
 				font-size: 1rem;
-				line-height: 1.5;			
+				line-height: 1.5;
 				font-weight: 400;
 				margin-bottom: 2rem;
 			}
@@ -419,20 +498,32 @@ why us
 *****************/
 .why-us {
 	padding: 80px;
-	display: flex;
-	justify-content: space-between;
+	@include flex(space-between, center, row);
+	@media(max-width:767px) {
+		padding: 60px 10px;			
+	}
 	h3 {
 		flex: 0 0 32%;
 		font-weight: 500;
 		line-height: 1.3;
 		font-size: 2.4rem;
 		align-self: center;
+		@media(max-width:767px) {
+			flex: 0 0 100%;
+			font-size: 1.6rem;	
+					
+		}
+
 	}
 	p {
 		flex: 0 0 32%;
 		font-size: 1rem;
 		line-height: 1.5;
 		font-weight: 400;
+		@media(max-width:767px) {
+			flex: 0 0 100%;
+			margin-top: 30px;		
+		}
 	}
 }
 
@@ -444,17 +535,29 @@ contact
 		background: $primary;
 		padding: 80px;
 		text-align: center;
+		@media(max-width:767px) {
+			padding: 50px 0;
+		}
 		.btn {
 			margin: 0 5px;
+			@media(max-width:767px) {
+				margin: 8px;
+			}
 		}
 	}
 	.container {
 		padding: 50px;
-		display: flex;
-		justify-content: space-between;
+		@media(max-width:767px) {
+			padding: 50px 0;
+			width: 95%;
+		}
+		@include flex(space-between, center, row);
 		.contact-form {
 			flex: 0 0 25%;
 			padding: 0 15px;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 			input {
 				width: 100%;
 				margin-bottom: 2rem;
@@ -470,8 +573,8 @@ contact
 				border: 1px dotted $text;
 				padding: 1rem;
 			}
-			.btn {
-				text-transform: uppercase;
+			button {
+				@extend .btn-yellow;
 				margin: 1rem auto;
 				display: block;
 				font-weight: bold;
@@ -484,6 +587,9 @@ contact
 		.contact-info-1 {
 			flex: 0 0 25%;
 			padding: 0 15px;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 			h3 {
 				font-family: $bodyFont;
 				font-size: 1.2rem;
@@ -502,6 +608,9 @@ contact
 		.contact-categories {
 			flex: 0 0 25%;
 			padding: 0 15px;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 			h3 {
 				font-family: $bodyFont;
 				font-size: 1.2rem;
@@ -510,7 +619,6 @@ contact
 				padding: 10px 0;
 			}
 			ul {
-				list-style: none;
 				padding: 10px 15px;
 				letter-spacing: 0px;
 				li {
@@ -530,25 +638,24 @@ contact
 		}
 		.contact-info-2 {
 			flex: 0 0 25%;
+			@media(max-width:767px) {
+				flex: 0 0 100%;
+			}
 			padding: 0 15px;
 			img {
 				width: 80px;
 				padding-bottom: 1rem;
 			}
 			p {
-				font-size: 0.8rem;
 				line-height: 1.7;
 				padding: 10px 0;
 				margin-bottom: 15px;
 				font-weight: 300;
 			}
 			.contact-set {
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: space-between;
+				@include flex(space-between, center, row);
 				i {
-					flex: 0 0 5%;
+					flex: 0 0 10%;
 					color: $darkblue;
 				}
 				h4 {
@@ -563,7 +670,6 @@ contact
 						color: $darkblue;
 					}
 				}
-
 			}
 		}
 	}
